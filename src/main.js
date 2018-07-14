@@ -16,49 +16,49 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 /* eslint-disable no-new */
 const routes = [{
-		path: '/',
-		redirect: '/goods'
-	}, {
-		path: '/goods',
-		component: goods,
-		name: 'goods'
-	},
-	{
-		path: '/ratings',
-		component: ratings,
-		name: 'ratings'
-	},
-	{
-		path: '/seller',
-		component: seller,
-		name: 'seller'
-	}
+    path: '/',
+    redirect: '/goods'
+  }, {
+    path: '/goods',
+    component: goods,
+    name: 'goods'
+  },
+  {
+    path: '/ratings',
+    component: ratings,
+    name: 'ratings'
+  },
+  {
+    path: '/seller',
+    component: seller,
+    name: 'seller'
+  }
 ];
 // 创建路由实例
 const router = new VueRouter({
-	routes: routes
+  routes: routes
 })
 // 关键在这里，设置afterEach钩子函数
 router.afterEach((to, from, next) => {
-	let title = "饿了么-商品";
-	switch(to.name) {
-		case "seller":
-			title = "饿了么-商家";
-			break;
-		case "goods":
-			title = "饿了么-商品";
-			break;
-		case "ratings":
-			title = "饿了么-评价";
-			break;
-	}
-	document.title = title;
+  let title = "饿了么-商品";
+  switch (to.name) {
+    case "seller":
+      title = "饿了么-商家";
+      break;
+    case "goods":
+      title = "饿了么-商品";
+      break;
+    case "ratings":
+      title = "饿了么-评价";
+      break;
+  }
+  document.title = title;
 });
 new Vue({
-	el: '#app',
-	router,
-	template: '<App/>',
-	components: {
-		App
-	}
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: {
+    App
+  }
 })
