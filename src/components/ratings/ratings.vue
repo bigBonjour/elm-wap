@@ -30,7 +30,7 @@
 			<!--评论列表-->
 			<div class="ratings-wrapper">
 				<ul>
-					<li v-for="rating in ratings" class="rating-item" v-show="neddShow(rating.rateType,rating.text)">
+					<li v-for="(rating,index) in ratings"  :key="index" class="rating-item" v-show="neddShow(rating.rateType,rating.text)">
 						<div class="avatar">
 							<img :src="rating.avatar" />
 						</div>
@@ -43,7 +43,7 @@
 							<p class="text">{{rating.text}}</p>
 							<div class="recommend" v-show="rating.recommend">
 								<span class="icon-thumb_up"></span>
-								<span v-for="item in rating.recommend" class="item">{{item}}</span>
+								<span v-for="(item,index) in rating.recommend" :key="index" class="item">{{item}}</span>
 							</div>
 							<p class="time">{{rating.deliveryTime | deliveryTimeForMat}}</p>
 						</div>

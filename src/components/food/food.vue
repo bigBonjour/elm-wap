@@ -34,7 +34,7 @@
 				<v-rating-select @change-selectType="changeSelectType" @change-onlyContent="changeOnlyContent" :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></v-rating-select>
 				<div class="rating-wrapper">
 					<ul v-show="food.ratings && food.ratings.length">
-						<li v-for="rating in food.ratings" class="rating-item" v-show="neddShow(rating.rateType,rating.text)">
+						<li v-for="(rating,index) in food.ratings"  :key="index" class="rating-item" v-show="neddShow(rating.rateType,rating.text)">
 							<div class="user">
 								<span class="name">{{rating.username}}</span>
 								<img class="avatar" :src="rating.avatar" width="12" height="12" />
